@@ -1,9 +1,16 @@
-<div style="text-align: center">
-  <h1>Welcome to todos!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Extensible Build Framework"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<section class="control-panel">
+  <div class="input-container">
+    <label for="name">Air pressure</label>
+    <input type="text" [(ngModel)]="pressure">
+  </div>
+  <button class="button" (click)="checkWeather()">Check Weather</button>
+</section>
+<hr>
+<section class="user-output">
+  <ul class="user-list">
+    <ng-container>
+      <li class="user-item" *ngFor="let row of rows">{{row}}</li>
+    </ng-container>
+  </ul>
+</section>
+<nx-todos-recap></nx-todos-recap>

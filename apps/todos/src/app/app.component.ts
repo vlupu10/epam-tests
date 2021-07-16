@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@nx-todos/api-interfaces';
+import { Weather } from './weather';
+// import { HttpClient } from '@angular/common/http';
+// import { Message } from '@nx-todos/api-interfaces';
 
 @Component({
   selector: 'nx-todos-root',
@@ -8,6 +9,10 @@ import { Message } from '@nx-todos/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  rows: string[] = [];
+  pressure = 1050;
+
+  checkWeather() {
+    this.rows.push(`${this.pressure} MBar: ` + new Weather(this.pressure).forecast());
+  }
 }
