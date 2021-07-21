@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { createMockString } from '../util/string.mock';
 import HashMap from 'hashmap';
-//import * as HashMap from '../../../../../node_modules/@types/hashmap/index';
 interface DataObj {
   id?: string;
   name: string;
@@ -160,7 +159,6 @@ export class RecapComponent implements OnInit {
       let str = '';
       let len = 0;
       const flatArr = arr.flat(Infinity);
-      // console.log('flatten array', flatArr);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       flatArr.forEach((el: any) => {
         len = el.length;
@@ -174,6 +172,20 @@ export class RecapComponent implements OnInit {
     const arr2 = ['a', ['a', 'ac', 'dfgh', ''], 'abc'];
     console.log('Arr 1', longestStr(arr1));
     console.log('Arr 2', longestStr(arr2));
+
+    // 7. Clock
+    console.log('Clock');
+    // const checkLength = (value: string): string => {
+    //   return value.length === 1 ? value = '0' + value : value;
+    // };
+    // setInterval(() => {
+    //     const date = new Date();
+    //     const hours = checkLength(date.getHours().toString());
+    //     const minutes = checkLength(date.getMinutes().toString());
+    //     const seconds = checkLength(date.getSeconds().toString());
+    //     this.time = hours + ':' + minutes + ':' + seconds;
+    // }, 1000);
+
 
   }
 
