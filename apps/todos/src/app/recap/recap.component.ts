@@ -31,7 +31,7 @@ export class RecapComponent implements OnInit {
           return createMockString();
         }
       }
-    }; 
+    };
     const p1 = new Proxy(nameObj, handler);
     const p2 = new Proxy(idNameObj, handler);
     console.log('p1.id: ', p1.id);
@@ -109,7 +109,7 @@ export class RecapComponent implements OnInit {
 
     const sayHello2 = sayHello1.bind({name: "Berlin"});
     console.log('sayHello2()', sayHello2());
-  
+
     `);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function greet(this: any) {
@@ -186,6 +186,46 @@ export class RecapComponent implements OnInit {
     //     this.time = hours + ':' + minutes + ':' + seconds;
     // }, 1000);
 
+    // Frog jump the river
+    function solution(X: number, A: number[]) {
+      // write your code in JavaScript (Node.js 6.4.0)
+      const leaves = new Array(X);
+      console.log(`X ${X}`);
+      console.log(`array A: ${A}`);
+      console.log(`leaves array [${leaves[0]}, ${leaves[1]}, ${leaves[2]}, ${leaves[3]}, ${leaves[4]}]`);
+      console.log(`leaves array length ${leaves.length}`);
+      let result = -1;
+
+      for( let i=0; i<A.length; i++ )
+      {
+          console.log(`i: ${i} A[${i}] ${A[i]} leaves[${A[i]}] ${leaves[A[i]]}`);
+          if( !leaves[A[i]] ) {
+            leaves[A[i]] = i;
+            console.log(`i* ${i} A[${i}] ${A[i]} leaves[${A[i]}] ${leaves[A[i]]}`);
+            //console.log('i* ', i , ' A[i] ', A[i] , ' leaves[A[i]]', leaves[A[i]]);
+          }
+      }
+      console.log('leaves', leaves);
+
+      if( leaves.length < X ) return -1;
+
+      for(let i=1; i<=X; i++ )
+      {
+          if( leaves[i] == undefined ) {
+            console.log(`result negative ${result}`);
+            return -1;
+          } else {
+            console.log(`result positive before ${result}`);
+            result = Math.max( result, leaves[i] );
+            console.log(`result positive after ${result}`);
+          }
+
+      }
+console.log(180.9*1.13);
+      return result;
+    }
+
+    console.log('Frog jumps result: ', solution(5, [1,3,1,4,2,3,5,4]));
 
   }
 
